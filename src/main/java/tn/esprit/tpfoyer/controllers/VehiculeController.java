@@ -12,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class VehiculeController {
 
-    private final IVehiculeService vehiculeService; // injection par constructeur
+    private final IVehiculeService vehiculeService;
 
     @PostMapping
     public Vehicule ajouter(@RequestBody Vehicule vehicule) {

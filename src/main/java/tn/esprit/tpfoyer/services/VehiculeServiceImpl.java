@@ -12,9 +12,13 @@ import java.util.List;
 public class VehiculeServiceImpl implements IVehiculeService {
 
     private final IVehiculeRepository vehiculeRepository;
+    private final VehiculeValidator vehiculeValidator;
+    private final JournalisationService journalisationService;
 
     @Override
     public Vehicule ajouter(Vehicule vehicule) {
+        vehiculeValidator.valider(vehicule);
+        journalisationService.journaliser("Ajout du véhicule " + vehicule.getImmatriculation());
         return vehiculeRepository.save(vehicule);
     }
 
